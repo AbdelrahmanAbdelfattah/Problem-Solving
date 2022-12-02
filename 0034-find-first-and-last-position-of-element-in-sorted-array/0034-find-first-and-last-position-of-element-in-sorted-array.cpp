@@ -1,0 +1,39 @@
+class Solution {
+public:
+    const int lower (vector<int>& v , int target )
+{
+    int s= 0  ,en =v.size() -1 , ans=-1 ;
+    while(s<=en )
+    {
+        int mid =(s+en)/2;
+        if( v[mid]==target)
+            ans= mid , en =mid-1;
+        else if (v[mid ]<target)
+            s= mid+1;
+        else
+            en= mid-1;
+    }
+    return ans;
+
+}
+const int upper ( vector<int > &v, int target )
+{
+    int s= 0  ,en =v.size() -1 , ans=-1 ;
+    while(s<=en )
+    {
+        int mid =(s+en)/2;
+        if( v[mid]==target)
+            ans= mid , s =mid+1;
+        else if (v[mid ]<target)
+            s= mid+1;
+        else
+            en= mid-1;
+    }
+    return ans;
+}
+
+vector<int> searchRange(vector<int>& nums, int target) {
+
+    return {lower(nums,target), upper(nums,target)};
+}
+};
