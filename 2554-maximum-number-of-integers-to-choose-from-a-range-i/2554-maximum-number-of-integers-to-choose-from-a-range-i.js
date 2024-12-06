@@ -10,6 +10,8 @@ var maxCount = function (banned, n, maxSum) {
       sum += i;
       count++;
     }
+      else if (sum + i >= maxSum) break ;
   }
+  
   return count;
 };
